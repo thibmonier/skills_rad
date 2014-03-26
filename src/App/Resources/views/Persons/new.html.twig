@@ -1,0 +1,10 @@
+{% extends 'App:layouts:default.html.twig' %}
+
+{% block content %}
+
+<form method="POST" action="{{ path('app_persons_create') }}" {{ form_enctype(form) }} class="form form-horizontal">
+    {{ form_widget(form) }}
+    <input type="submit" />
+</form>
+
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends 'App:layouts:h5bp.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/knprad/bootstrap/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/knprad/bootstrap/css/bootstrap-responsive.min.css') }}" />
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/knprad/common/js/jquery-1.8.2.min.js') }}"></script>
+    <script src="{{ asset('bundles/knprad/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/bootstrap/bootstrap-carousel.js') }}"></script>
+{% endblock %}
+
+{% block flashes %}
+    {% flashes %}
+    <div class="alert alert-{{ type }}">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endflashes %}
+{% endblock %}
+
+{% block body %}
+{% endblock %}

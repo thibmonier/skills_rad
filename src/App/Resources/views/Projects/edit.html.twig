@@ -1,0 +1,10 @@
+{% extends 'App:layouts:default.html.twig' %}
+
+{% block content %}
+
+<form method="PUT" action="{{ path('app_projects_update', {'id': project.getId()}) }}" {{ form_enctype(form) }} class="form form-horizontal">
+    {{ form_widget(form) }}
+    <input type="submit" />
+</form>
+
+{% endblock content %}

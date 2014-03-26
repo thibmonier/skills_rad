@@ -1,0 +1,10 @@
+{% extends 'App::layout.html.twig' %}
+
+{% block body %}
+<div class="content">
+    <form method="POST" action="{{ path('app_tags_create') }}" {{ form_enctype(form) }} class="form form-horizontal">
+        {{ form_widget(form) }}
+        <input type="submit" />
+    </form>
+</div>
+{% endblock body %}

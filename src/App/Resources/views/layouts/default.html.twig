@@ -1,0 +1,50 @@
+{% extends 'App:layouts:bootstrap.html.twig' %}
+
+{% block headers %}
+    <title>{% block title %}{% block subtitle '' %} &mdash; KnpRadBundle{% endblock %}</title>
+    <meta name="description" content="{% block description '' %}">
+
+    <script src="/front/vendor/modernizr/modernizr.js"></script>
+{% endblock headers %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <!-- build:css /front/styles/vendor.css -->
+    <!-- endbuild -->
+
+    <!-- build:css /front/styles/app.css -->
+    <!-- endbuild -->
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/main.css') }}" />
+{% endblock %}
+
+{% block body %}
+<h1><a href="{{ path('app_homepage_index') }}">Skills</a></h1>
+<div class="row-fluid">
+    <div class="span3">
+        <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+                <li class="nav-header">Sidebar</li>
+                <li><a href="{{ path('app_agencies_index') }}">Agences</a></li>
+                <li><a href="{{ path('app_persons_index') }}">Collaborateurs</a></li>
+                <li><a href="{{ path('app_technologies_index') }}">Technologies</a></li>
+                <li><a href="{{ path('app_tags_index') }}">Tags</a></li>
+                <li><a href="{{ path('app_projects_index') }}">Projet</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container span9">
+        {% block content %}{% endblock %}
+    </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <!-- build:js /front/scripts/vendor.js -->
+    <script src="/front/vendor/jquery/jquery.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js /front/scripts/app.js -->
+    <script src="/front/scripts/main.js"></script>
+    <!-- endbuild -->
+{% endblock %}

@@ -1,0 +1,48 @@
+# https://github.com/KnpLabs/geekweek12/wiki/Routing
+
+homepage:
+    pattern: /
+    defaults: { _controller: FrameworkBundle:Template:template, template: 'App::homepage.html.twig' }
+
+'App:Projects':
+    defaults:
+        _resources:
+            "projects": {service: "app.entity.project_repository", method: "findAll"}
+            "project":  {service: "app.entity.project_repository", method: "find", arguments: [name: "id"]}
+#            "session":  {service: "service_container",             method: "get",  arguments: [value: "session"]}
+
+'App:Technologies':
+    defaults:
+        _resources:
+            "technologies": {service: "app.entity.technology_repository", method: "findAll"}
+#            "project":  {service: "app.entity.project_repository", method: "find", arguments: [name: "id"]}
+#            "session":  {service: "service_container",             method: "get",  arguments: [value: "session"]}
+
+'App:Tags':
+    defaults:
+        _resources:
+            "tags": {service: "app.entity.tag_repository", method: "findAll"}
+#            "tag":  {service: "app.entity.tag_repository", method: "find", arguments: [name: "id"]}
+#            "session":  {service: "service_container",             method: "get",  arguments: [value: "session"]}
+
+
+'App:Agencies':
+    defaults:
+        _resources:
+            "agencies": {service: "app.entity.agency_repository", method: "findAll"}
+#            "agency":  {service: "app.entity.agency_repository", method: "find", arguments: [name: "id"]}
+#            "session":  {service: "service_container",             method: "get",  arguments: [value: "session"]}
+
+'App:Persons':
+    defaults:
+        _resources:
+            "persons": {service: "app.entity.person_repository", method: "findAll"}
+#            "person":  {service: "app.entity.person_repository", method: "find", arguments: [name: "id"]}
+#            "session":  {service: "service_container",             method: "get",  arguments: [value: "session"]}
+
+'App:Homepage':
+    defaults:
+        _resources:
+            "lastProjects": {service: "app.entity.project_repository", method: "getLastSignedProjects"}
+            "technos": {service: "app.entity.technology_repository", method: "getTechnos"}
+            "mostSigned": {service: "app.entity.technology_repository", method: "getMostSignedTechnos"}

@@ -1,0 +1,60 @@
+# https://github.com/nelmio/alice#reference
+App\Entity\Country:
+   country0:
+       name: France
+       shortname: FR
+
+App\Entity\Agency:
+    agency0:
+        name: Nantes
+        country: @country0
+
+App\Entity\BusinessUnit:
+    businessUnit0:
+        name: devspec
+        agency: @agency0
+
+App\Entity\Person:
+    person{0..10}:
+        firstname: <fr_FR:firstname()>
+        lastname: <fr_FR:lastname()>
+        birthdate: <datetime()>
+        arrival: <datetime()>
+        departure: <datetime()>
+        picture: <imageUrl()>
+        bu: @businessUnit0
+
+App\Entity\Technology:
+    technology0:
+        name: Php
+
+App\Entity\Tag:
+    tag0:
+        name: Symfony
+
+App\Entity\Client:
+    client{1..40}:
+        name: <word()>
+        description: <text($maxNbChars = 200)>
+
+App\Entity\Project:
+    project{0..20}:
+        name: <word()>
+        description: <text($maxNbChars = 200)>
+        createdAt: <dateTimeThisMonth($max = 'now')>
+        updatedAt: <dateTimeThisMonth($max = 'now')>
+        beginAt: <dateTimeThisMonth($max = 'now')>
+        sellPrice: <numberBetween(10000, 100000)>
+        nbDays: <numberBetween(5, 500)>
+        tjm: <numberBetween(350, 1500)>
+        active: 1
+        contractType: Forfait
+        testimony: 1
+        projectManager: [@person*]
+        client: @client*
+
+
+
+
+
+
