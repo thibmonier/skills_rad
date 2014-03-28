@@ -15,8 +15,6 @@ class HomepageController extends Controller
 {
     public function indexAction(array $lastProjects, array $technos, array $mostSigned) {
 
-        //$lastProjects = $em->getRepository('SmileProjectBundle:Project')->getLastSignedProjects();
-
         $ob = new Highchart();
         $ob->chart->renderTo('linechart');
         $ob->title->text('Techno used');
@@ -29,7 +27,6 @@ class HomepageController extends Controller
             'showInLegend' => false
         ));
 
-       // $technos = $em->getRepository('SmileProjectBundle:Technology')->getTechnos();
         $sum=0;
         $data = array();
         foreach ($technos as $value) {
@@ -39,8 +36,6 @@ class HomepageController extends Controller
             $data[] = array($value['name'], round($value['1']*100/$sum, 2));
         }
 
-        //$mostSigned = $em->getRepository('SmileProjectBundle:Technology')->getMostSignedTechnos();
-
         $ob->series(array(
             array(
                 'type' => 'pie',
@@ -48,7 +43,7 @@ class HomepageController extends Controller
                 'data' => $data
             )
         ));
-
+        var_dump($mostSigned);
         return ['chart' => $ob,
             'lastProjects' => $lastProjects,
             'mostSigned' => $mostSigned];

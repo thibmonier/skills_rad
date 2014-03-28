@@ -30,7 +30,8 @@
         "avocode/form-extensions-bundle" : "dev-master",
         "cedriclombardot/admingenerator-generator-bundle" : "dev-master",
         "gedmo/doctrine-extensions": "2.3.x-dev",
-        "ob/highcharts-bundle": "dev-master"
+        "ob/highcharts-bundle": "dev-master",
+        "jms/debugging-bundle": "dev-master"
     },
     "require-dev": {
         "behat/behat": "~3@dev",
