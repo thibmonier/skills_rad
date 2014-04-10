@@ -1,12 +1,12 @@
 <?php
 namespace App\Entity;
 
+use Avocode\FormExtensionsBundle\Form\Model\UploadCollectionFileInterface as FileInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use Avocode\FormExtensionsBundle\Form\Model\UploadCollectionFileInterface as FileInterface;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Project
@@ -23,67 +23,40 @@ class Project implements FileInterface
 
     /**
      *
-     * @var integer @ORM\Column(name="id", type="integer")
-     *      @ORM\Id
-     *      @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
-    /**
-     *
-     * @var string @ORM\Column(name="name", type="string", length=255)
-     */
-    private $name;
-
-    /**
-     *
-     * @var string @ORM\Column(name="description", type="text", nullable=true)
-     */
-    private $description;
-
-    /**
-     *
      * @var datetime @ORM\Column(name="created_at", type="datetime")
      */
     protected $createdAt;
-
     /**
      *
      * @var datetime @ORM\Column(name="updated_at", type="datetime")
      */
     protected $updatedAt;
-
     /**
      *
      * @var datetime @ORM\Column(name="begin_at", type="datetime")
      */
     protected $beginAt;
-
     /**
      *
      * @var float @ORM\Column(name="sell_price", type="float", nullable=true)
      */
     protected $sellPrice;
-
     /**
      *
      * @var float @ORM\Column(name="nb_days", type="float", nullable=true)
      */
     protected $nbDays;
-
     /**
      *
      * @var float @ORM\Column(name="tjm", type="float", nullable=true)
      */
     protected $tjm;
-
     /**
      * Etat d'activite du projet
      *
      * @var boolean @ORM\Column(name="is_active", type="boolean")
      */
     protected $active;
-
     /**
      * @ORM\ManyToMany(targetEntity="Technology", inversedBy="projects")
      * @ORM\JoinTable(name="project_technologies")
@@ -91,7 +64,6 @@ class Project implements FileInterface
      * @var ArrayCollection
      */
     protected $technologies;
-
     /**
      * @ORM\ManyToMany(targetEntity="Agency")
      * @ORM\JoinTable(name="project_agencies")
@@ -99,35 +71,30 @@ class Project implements FileInterface
      * @var ArrayCollection
      */
     protected $agencies;
-
     /**
      * @ORM\ManyToOne(targetEntity="Client")
      *
      * @var Client
      */
     protected $client;
-
     /**
      *
      * @var string
      * @ORM\Column(name="info_supp", type="text", nullable=true)
      */
     protected $infosupp;
-
     /**
      *
      * @var string
      * @ORM\Column(name="info_vol", type="text", nullable=true)
      */
     protected $infoVol;
-
     /**
      *
      * @var string
      * @ORM\Column(name="contract_type", type="string", length=255)
      */
     protected $contractType;
-
     /**
      * @ORM\ManyToMany(targetEntity="Person")
      * @ORM\JoinTable(name="project_management")
@@ -135,14 +102,12 @@ class Project implements FileInterface
      * @var ArrayCollection
      */
     protected $projectManager;
-
     /**
      * Etat d'activite du projet
      *
      * @var boolean @ORM\Column(name="testimony", type="boolean")
      */
     protected $testimony;
-
     /**
      * Screen du projet
      *
@@ -155,22 +120,19 @@ class Project implements FileInterface
      * @var File $screenshot
      */
     protected $screenshot;
-
     /**
      *
      * @var string $screenshotLabel
-     *     
-     *      @ORM\Column(name="screenshot_label", type="string", length=255, nullable=true)
+     *
+     * @ORM\Column(name="screenshot_label", type="string", length=255, nullable=true)
      */
     protected $screenshotLabel;
-    
     /**
      * @ORM\ManyToOne(targetEntity="Period", cascade={"all"})
      *
      * @var Period
      */
     protected $period;
-
     /**
      * Screen du projet
      *
@@ -183,14 +145,30 @@ class Project implements FileInterface
      * @var File $file
      */
     protected $file;
-
     /**
      *
      * @var string $fileLabel
      *
-     *      @ORM\Column(name="file_label", type="string", length=255, nullable=true)
+     * @ORM\Column(name="file_label", type="string", length=255, nullable=true)
      */
     protected $fileLabel;
+    /**
+     *
+     * @var integer @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    /**
+     *
+     * @var string @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+    /**
+     *
+     * @var string @ORM\Column(name="description", type="text", nullable=true)
+     */
+    private $description;
 
     /**
      * Constructor.
@@ -212,21 +190,6 @@ class Project implements FileInterface
     {
         return $this->id;
     }
-    
-
-
-    /**
-     * Set name
-     *
-     * @param string $name            
-     * @return Project
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-        
-        return $this;
-    }
 
     /**
      * Get name
@@ -236,6 +199,19 @@ class Project implements FileInterface
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Project
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
     }
 
     public function getTechnologies()
@@ -300,8 +276,8 @@ class Project implements FileInterface
 
     /**
      *
-     * @param
-     *            $agencies
+     * @param $agencies
+     * @return $this
      */
     public function setAgencies($agencies)
     {
@@ -341,8 +317,8 @@ class Project implements FileInterface
 
     /**
      *
-     * @param
-     *            $description
+     * @param $description
+     * @return Project
      */
     public function setDescription($description)
     {
@@ -361,8 +337,8 @@ class Project implements FileInterface
 
     /**
      *
-     * @param
-     *            $beginAt
+     * @param datetime $beginAt
+     * @return Project
      */
     public function setBeginAt($beginAt)
     {
@@ -381,8 +357,8 @@ class Project implements FileInterface
 
     /**
      *
-     * @param
-     *            $sellPrice
+     * @param $sellPrice
+     * @return Project
      */
     public function setSellPrice($sellPrice)
     {
@@ -401,8 +377,8 @@ class Project implements FileInterface
 
     /**
      *
-     * @param
-     *            $nbDays
+     * @param $nbDays
+     * @return Project
      */
     public function setNbDays($nbDays)
     {
@@ -421,8 +397,8 @@ class Project implements FileInterface
 
     /**
      *
-     * @param
-     *            $tjm
+     * @param $tjm
+     * @return Project
      */
     public function setTjm($tjm)
     {
@@ -440,17 +416,14 @@ class Project implements FileInterface
         return 2048;
     }
 
+    /**
+     * @return bool
+     */
     public function getPreview()
     {
         return true;
         // you could implement here some logic checking file's mimetype
         // to preview only Images
-    }
-
-    public function setFile(File $file)
-    {
-        $this->file = $file;
-        return $this;
     }
 
     /**
@@ -461,6 +434,12 @@ class Project implements FileInterface
     public function getFile()
     {
         return $this->file;
+    }
+
+    public function setFile(File $file)
+    {
+        $this->file = $file;
+        return $this;
     }
 
     /**
@@ -484,8 +463,8 @@ class Project implements FileInterface
 
     /**
      *
-     * @param
-     *            $screenshot
+     * @param $screenshot
+     * @return Project
      */
     public function setScreenshot($screenshot)
     {
@@ -504,8 +483,8 @@ class Project implements FileInterface
 
     /**
      *
-     * @param
-     *            $screenshotLabel
+     * @param $screenshotLabel
+     * @return Project
      */
     public function setScreenshotLabel($screenshotLabel)
     {
@@ -524,8 +503,8 @@ class Project implements FileInterface
 
     /**
      *
-     * @param
-     *            $infosupp
+     * @param $infosupp
+     * @return Project
      */
     public function setInfosupp($infosupp)
     {
@@ -544,8 +523,8 @@ class Project implements FileInterface
 
     /**
      *
-     * @param
-     *            $infoVol
+     * @param $infoVol
+     * @return Project
      */
     public function setInfoVol($infoVol)
     {
@@ -564,8 +543,8 @@ class Project implements FileInterface
 
     /**
      *
-     * @param
-     *            $contractType
+     * @param $contractType
+     * @return Project
      */
     public function setContractType($contractType)
     {
@@ -584,10 +563,10 @@ class Project implements FileInterface
 
     /**
      *
-     * @param
-     *            $projectManager
+     * @param Person $projectManager
+     * @return Project
      */
-    public function setProjectManager($projectManager)
+    public function setProjectManager(Person $projectManager)
     {
         $this->projectManager = $projectManager;
         return $this;
@@ -595,7 +574,7 @@ class Project implements FileInterface
 
     /**
      *
-     * @return the boolean
+     * @return bool the boolean
      */
     public function getTestimony()
     {
@@ -604,8 +583,8 @@ class Project implements FileInterface
 
     /**
      *
-     * @param
-     *            $testimony
+     * @param string $testimony
+     * @return Project
      */
     public function setTestimony($testimony)
     {
@@ -614,18 +593,30 @@ class Project implements FileInterface
     }
 
 
- public function getPeriod() {
-  return $this->period;
- }
- 
- public function setPeriod( $period) {
-  $this->period = $period;
-  return $this;
- }
+    /**
+     * @return Period
+     */
+    public function getPeriod()
+    {
+        return $this->period;
+    }
 
+    /**
+     * @param $period
+     * @return $this
+     */
+    public function setPeriod($period)
+    {
+        $this->period = $period;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return '';
     }
- 
+
 }
