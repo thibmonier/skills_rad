@@ -27,10 +27,16 @@ App\Entity\Person:
 App\Entity\Technology:
     technology0:
         name: Php
+    technology1:
+        name: Java
 
 App\Entity\Tag:
     tag0:
         name: Symfony
+    tag1:
+        name: Play!
+    tag2:
+        name: FOSUserBundle
 
 App\Entity\Client:
     client{1..40}:
@@ -50,8 +56,9 @@ App\Entity\Project:
         active: 1
         contractType: Forfait
         testimony: 1
-        projectManager: [@person*]
+        projectManagers: [@person*]
         client: @client*
+        technologies: [@technology*]
 
 
 

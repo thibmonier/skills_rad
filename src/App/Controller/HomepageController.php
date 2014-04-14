@@ -43,7 +43,6 @@ class HomepageController extends Controller
                 'data' => $data
             )
         ));
-        var_dump($mostSigned);
         return ['chart' => $ob,
             'lastProjects' => $lastProjects,
             'mostSigned' => $mostSigned];

@@ -108,7 +108,7 @@ class Project implements FileInterface
      *
      * @var ArrayCollection
      */
-    protected $projectManager;
+    protected $projectManagers;
     /**
      * Etat d'activite du projet
      *
@@ -579,19 +579,19 @@ class Project implements FileInterface
      *
      * @return the ArrayCollection
      */
-    public function getProjectManager()
+    public function getProjectManagers()
     {
-        return $this->projectManager;
+        return $this->projectManagers;
     }
 
     /**
      *
-     * @param Person $projectManager
+     * @param ArrayCollection $projectManagers
      * @return Project
      */
-    public function setProjectManager(Person $projectManager)
+    public function setProjectManagers($projectManagers)
     {
-        $this->projectManager = $projectManager;
+        $this->projectManagers = $projectManagers;
         return $this;
     }
 

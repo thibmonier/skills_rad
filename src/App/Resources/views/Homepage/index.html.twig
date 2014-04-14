@@ -76,7 +76,7 @@
                 {% for arry in mostSigned %}
                 <tr>
                     <td>{{ arry.name }}</td>
-                    <td>{{ arry.1 }}</td>
+                    <td>{{ arry.1|number_format(2, '.', ',') }} €</td>
                 </tr>
                 {% endfor %}
             </table></p>
