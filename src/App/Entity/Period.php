@@ -1,8 +1,8 @@
 <?php
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Period
@@ -16,8 +16,8 @@ class Period
     /**
      *
      * @var integer @ORM\Column(name="id", type="integer")
-     *      @ORM\Id
-     *      @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
@@ -58,13 +58,13 @@ class Period
         $date = new \DateTime();
         $this->month = date("m");
         $this->year = date("Y");
-        
+
         $this->monthLabel = date("m");
         $this->yearLabel = date("Y");
-        
+
         $this->sDate = $this->monthLabel . '-' . $this->yearLabel;
     }
-    
+
     /**
      * Get id
      *
@@ -73,19 +73,6 @@ class Period
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set monthLabel
-     *
-     * @param string $monthLabel            
-     * @return Period
-     */
-    public function setMonthLabel($monthLabel)
-    {
-        $this->monthLabel = $monthLabel;
-        
-        return $this;
     }
 
     /**
@@ -99,15 +86,15 @@ class Period
     }
 
     /**
-     * Set month
+     * Set monthLabel
      *
-     * @param integer $month            
+     * @param string $monthLabel
      * @return Period
      */
-    public function setMonth($month)
+    public function setMonthLabel($monthLabel)
     {
-        $this->month = $month;
-        
+        $this->monthLabel = $monthLabel;
+
         return $this;
     }
 
@@ -122,15 +109,28 @@ class Period
     }
 
     /**
+     * Set month
+     *
+     * @param integer $month
+     * @return Period
+     */
+    public function setMonth($month)
+    {
+        $this->month = $month;
+
+        return $this;
+    }
+
+    /**
      * Set yearName
      *
-     * @param string $yearName            
+     * @param string $yearName
      * @return Period
      */
     public function setYearName($yearName)
     {
         $this->yearName = $yearName;
-        
+
         return $this;
     }
 
@@ -145,19 +145,6 @@ class Period
     }
 
     /**
-     * Set year
-     *
-     * @param integer $year            
-     * @return Period
-     */
-    public function setYear($year)
-    {
-        $this->year = $year;
-        
-        return $this;
-    }
-
-    /**
      * Get year
      *
      * @return integer
@@ -165,6 +152,19 @@ class Period
     public function getYear()
     {
         return $this->year;
+    }
+
+    /**
+     * Set year
+     *
+     * @param integer $year
+     * @return Period
+     */
+    public function setYear($year)
+    {
+        $this->year = $year;
+
+        return $this;
     }
 
     public function getProjects()

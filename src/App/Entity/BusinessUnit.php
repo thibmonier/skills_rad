@@ -46,7 +46,7 @@ class BusinessUnit
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -54,26 +54,13 @@ class BusinessUnit
     }
 
     /**
-     * Set name
+     * Get agency
      *
-     * @param string $name
-     * @return BusinessUnit
+     * @return Agency
      */
-    public function setName($name)
+    public function getAgency()
     {
-        $this->name = $name;
-    
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
+        return $this->agency;
     }
 
     /**
@@ -85,18 +72,18 @@ class BusinessUnit
     public function setAgency(Agency $agency)
     {
         $this->agency = $agency;
-    
+
         return $this;
     }
 
     /**
-     * Get agency
+     * Get manager
      *
-     * @return Agency 
+     * @return string
      */
-    public function getAgency()
+    public function getManager()
     {
-        return $this->agency;
+        return $this->manager;
     }
 
     /**
@@ -108,22 +95,35 @@ class BusinessUnit
     public function setManager($manager)
     {
         $this->manager = $manager;
-    
-        return $this;
-    }
 
-    /**
-     * Get manager
-     *
-     * @return string 
-     */
-    public function getManager()
-    {
-        return $this->manager;
+        return $this;
     }
 
     public function __toString()
     {
         return $this->getName();
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return BusinessUnit
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
     }
 }

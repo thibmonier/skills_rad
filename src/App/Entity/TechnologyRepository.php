@@ -12,7 +12,14 @@ use Doctrine\ORM\EntityRepository;
 class TechnologyRepository extends EntityRepository
 {
 
-    public function getTechnos($alias = 'techno', $limit=15)
+    /**
+     * Retourne la liste des technos embarquées
+     *
+     * @param string $alias
+     * @param int $limit
+     * @return array
+     */
+    public function getTechnos($alias = 'techno', $limit = 15)
     {
         return $this->createQueryBuilder($alias)
             ->select($alias . '.name, SUM(1)')
@@ -24,6 +31,13 @@ class TechnologyRepository extends EntityRepository
             ->getResult();
     }
 
+    /**
+     * Retourne la liste des technos les plus signées
+     *
+     * @param string $alias
+     * @param int $limit
+     * @return array
+     */
     public function getMostSignedTechnos($alias = 'techno', $limit = 10)
     {
         return $this->createQueryBuilder($alias)

@@ -15,8 +15,8 @@ class Person
     /**
      *
      * @var integer @ORM\Column(name="id", type="integer")
-     *      @ORM\Id
-     *      @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
@@ -65,7 +65,7 @@ class Person
     /**
      *
      * @var array @ORM\ManyToMany(targetEntity="Technology")
-     *      @ORM\JoinTable(name="competences")
+     * @ORM\JoinTable(name="competences")
      */
     private $technologies;
 
@@ -78,7 +78,7 @@ class Person
     /**
      *
      * @var array @ORM\ManyToMany(targetEntity="Project")
-     *      @ORM\JoinTable(name="project_team")
+     * @ORM\JoinTable(name="project_team")
      */
     private $projects;
 
@@ -93,65 +93,6 @@ class Person
     }
 
     /**
-     * Set firstname
-     *
-     * @param string $firstname            
-     * @return Person
-     */
-    public function setFirstname($firstname)
-    {
-        $this->firstname = $firstname;
-        
-        return $this;
-    }
-
-    /**
-     * Get firstname
-     *
-     * @return string
-     */
-    public function getFirstname()
-    {
-        return $this->firstname;
-    }
-
-    /**
-     * Set lastname
-     *
-     * @param string $lastname            
-     * @return Person
-     */
-    public function setLastname($lastname)
-    {
-        $this->lastname = $lastname;
-        
-        return $this;
-    }
-
-    /**
-     * Get lastname
-     *
-     * @return string
-     */
-    public function getLastname()
-    {
-        return $this->lastname;
-    }
-
-    /**
-     * Set birthdate
-     *
-     * @param \DateTime $birthdate            
-     * @return Person
-     */
-    public function setBirthdate($birthdate)
-    {
-        $this->birthdate = $birthdate;
-        
-        return $this;
-    }
-
-    /**
      * Get birthdate
      *
      * @return \DateTime
@@ -162,15 +103,15 @@ class Person
     }
 
     /**
-     * Set picture
+     * Set birthdate
      *
-     * @param string $picture            
+     * @param \DateTime $birthdate
      * @return Person
      */
-    public function setPicture($picture)
+    public function setBirthdate($birthdate)
     {
-        $this->picture = $picture;
-        
+        $this->birthdate = $birthdate;
+
         return $this;
     }
 
@@ -185,15 +126,15 @@ class Person
     }
 
     /**
-     * Set technologies
+     * Set picture
      *
-     * @param array $technologies            
+     * @param string $picture
      * @return Person
      */
-    public function setTechnologies($technologies)
+    public function setPicture($picture)
     {
-        $this->technologies = $technologies;
-        
+        $this->picture = $picture;
+
         return $this;
     }
 
@@ -208,15 +149,15 @@ class Person
     }
 
     /**
-     * Set bu
+     * Set technologies
      *
-     * @param string $bu            
+     * @param array $technologies
      * @return Person
      */
-    public function setBu($bu)
+    public function setTechnologies($technologies)
     {
-        $this->bu = $bu;
-        
+        $this->technologies = $technologies;
+
         return $this;
     }
 
@@ -231,15 +172,15 @@ class Person
     }
 
     /**
-     * Set projects
+     * Set bu
      *
-     * @param array $projects            
+     * @param string $bu
      * @return Person
      */
-    public function setProjects($projects)
+    public function setBu($bu)
     {
-        $this->projects = $projects;
-        
+        $this->bu = $bu;
+
         return $this;
     }
 
@@ -251,6 +192,19 @@ class Person
     public function getProjects()
     {
         return $this->projects;
+    }
+
+    /**
+     * Set projects
+     *
+     * @param array $projects
+     * @return Person
+     */
+    public function setProjects($projects)
+    {
+        $this->projects = $projects;
+
+        return $this;
     }
 
     /**
@@ -284,8 +238,8 @@ class Person
 
     /**
      *
-     * @param
-     *            $departure
+     * @param $departure
+     * @return Person
      */
     public function setDeparture($departure)
     {
@@ -298,14 +252,67 @@ class Person
         return $this->photoName;
     }
 
+    /**
+     * @param $photoName
+     * @return $this
+     */
     public function setPhotoName($photoName)
     {
         $this->photoName = $photoName;
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return $this->getFirstname() . ' ' . $this->getLastname();
+    }
+
+    /**
+     * Get firstname
+     *
+     * @return string
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * Set firstname
+     *
+     * @param string $firstname
+     * @return Person
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    /**
+     * Get lastname
+     *
+     * @return string
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * Set lastname
+     *
+     * @param string $lastname
+     * @return Person
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+
+        return $this;
     }
 }

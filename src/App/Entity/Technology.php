@@ -1,8 +1,8 @@
 <?php
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Technology
@@ -14,29 +14,13 @@ class Technology
 {
 
     /**
-     *
-     * @var integer @ORM\Column(name="id", type="integer")
-     *      @ORM\Id
-     *      @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
-    /**
-     *
-     * @var string @ORM\Column(name="name", type="string", length=255)
-     */
-    private $name;
-
-    /**
      * type of this technology
      *
-     * @var TechnologyType 
+     * @var array $tags
      * @ORM\ManyToMany(targetEntity="App\Entity\Tag")
      * @ORM\JoinTable(name="technology_tag")
      */
     protected $tags = array();
-
-    
     /**
      * projects using this technology
      *
@@ -44,8 +28,19 @@ class Technology
      * @ORM\ManyToMany(targetEntity="App\Entity\Project", mappedBy="technologies", cascade={"all"})
      */
     protected $projects = array();
-    
-    
+    /**
+     *
+     * @var integer @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    /**
+     *
+     * @var string @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+
     /**
      * Get id
      *
@@ -54,19 +49,6 @@ class Technology
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name            
-     * @return Technology
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-        
-        return $this;
     }
 
     /**
@@ -80,7 +62,20 @@ class Technology
     }
 
     /**
-     * Get technologyType
+     * Set name
+     *
+     * @param string $name
+     * @return Technology
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return array
      */
     public function getTags()
     {
@@ -88,16 +83,18 @@ class Technology
     }
 
     /**
-     * TechnologyType
-     * @param Array $technologyType
-     * @return \App\Entity\Technology
+     * @param Array $tags
+     * @return Technology
      */
     public function setTags($tags)
     {
         $this->tags = $tags;
         return $this;
     }
-    
+
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return $this->name;

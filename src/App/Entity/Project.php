@@ -23,38 +23,45 @@ class Project implements FileInterface
 
     /**
      *
-     * @var datetime @ORM\Column(name="created_at", type="datetime")
+     * @var datetime
+     * @ORM\Column(name="created_at", type="datetime")
      */
     protected $createdAt;
     /**
      *
-     * @var datetime @ORM\Column(name="updated_at", type="datetime")
+     * @var datetime
+     * @ORM\Column(name="updated_at", type="datetime")
      */
     protected $updatedAt;
     /**
      *
-     * @var datetime @ORM\Column(name="begin_at", type="datetime")
+     * @var datetime
+     * @ORM\Column(name="begin_at", type="datetime")
      */
     protected $beginAt;
     /**
      *
-     * @var float @ORM\Column(name="sell_price", type="float", nullable=true)
+     * @var float
+     * @ORM\Column(name="sell_price", type="float", nullable=true)
      */
     protected $sellPrice;
     /**
      *
-     * @var float @ORM\Column(name="nb_days", type="float", nullable=true)
+     * @var float
+     * @ORM\Column(name="nb_days", type="float", nullable=true)
      */
     protected $nbDays;
     /**
      *
-     * @var float @ORM\Column(name="tjm", type="float", nullable=true)
+     * @var float
+     * @ORM\Column(name="tjm", type="float", nullable=true)
      */
     protected $tjm;
     /**
      * Etat d'activite du projet
      *
-     * @var boolean @ORM\Column(name="is_active", type="boolean")
+     * @var boolean
+     * @ORM\Column(name="is_active", type="boolean")
      */
     protected $active;
     /**
@@ -105,7 +112,8 @@ class Project implements FileInterface
     /**
      * Etat d'activite du projet
      *
-     * @var boolean @ORM\Column(name="testimony", type="boolean")
+     * @var boolean
+     * @ORM\Column(name="testimony", type="boolean")
      */
     protected $testimony;
     /**
@@ -161,12 +169,14 @@ class Project implements FileInterface
     private $id;
     /**
      *
-     * @var string @ORM\Column(name="name", type="string", length=255)
+     * @var string
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
     /**
      *
-     * @var string @ORM\Column(name="description", type="text", nullable=true)
+     * @var string
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
@@ -267,7 +277,7 @@ class Project implements FileInterface
 
     /**
      *
-     * @return the ArrayCollection
+     * @return array
      */
     public function getAgencies()
     {
@@ -276,8 +286,8 @@ class Project implements FileInterface
 
     /**
      *
-     * @param $agencies
-     * @return $this
+     * @param array $agencies
+     * @return Project
      */
     public function setAgencies($agencies)
     {
@@ -285,21 +295,34 @@ class Project implements FileInterface
         return $this;
     }
 
+    /**
+     * @return bool
+     */
     public function isActive()
     {
         return $this->active;
     }
 
+    /**
+     * @param bool $active
+     */
     public function setActive($active)
     {
         $this->active = $active;
     }
 
+    /**
+     * @return Client
+     */
     public function getClient()
     {
         return $this->client;
     }
 
+    /**
+     * @param $client
+     * @return Project
+     */
     public function setClient($client)
     {
         $this->client = $client;

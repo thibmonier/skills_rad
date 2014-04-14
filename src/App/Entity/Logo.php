@@ -3,8 +3,8 @@ namespace App\Entity;
 
 use Avocode\FormExtensionsBundle\Form\Model\UploadCollectionFileInterface;
 use Doctrine\ORM\Mapping as ORM;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Table(name="acme_image")
@@ -25,39 +25,27 @@ class Logo implements UploadCollectionFileInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $name; // used for nameable option
-    
+
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $description; // simple editable field
-    
+
     /**
      * @Vich\UploadableField(mapping="product_image", fileNameProperty="path")
      */
     protected $file; // file container
-    
+
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $path; // used to store file path
-    
+
     /**
      * @Gedmo\SortablePosition
      * @ORM\Column(name="position", type="integer")
      */
     protected $position; // used to store sortable position
-    
-    /**
-     * Set file
-     *
-     * @param Symfony\Component\HttpFoundation\File\File $file            
-     * @return AlbumImage
-     */
-    public function setFile(\Symfony\Component\HttpFoundation\File\File $file)
-    {
-        $this->file = $file;
-        return $this;
-    }
 
     /**
      * Get file
@@ -67,6 +55,18 @@ class Logo implements UploadCollectionFileInterface
     public function getFile()
     {
         return $this->file;
+    }
+
+    /**
+     * Set file
+     *
+     * @param Symfony\Component\HttpFoundation\File\File $file
+     * @return AlbumImage
+     */
+    public function setFile(\Symfony\Component\HttpFoundation\File\File $file)
+    {
+        $this->file = $file;
+        return $this;
     }
 
     /**
@@ -106,7 +106,7 @@ class Logo implements UploadCollectionFileInterface
 
     /**
      *
-     * @param unknown_type $name            
+     * @param unknown_type $name
      */
     public function setName($name)
     {
@@ -125,7 +125,7 @@ class Logo implements UploadCollectionFileInterface
 
     /**
      *
-     * @param unknown_type $description            
+     * @param unknown_type $description
      */
     public function setDescription($description)
     {
@@ -144,7 +144,7 @@ class Logo implements UploadCollectionFileInterface
 
     /**
      *
-     * @param unknown_type $path            
+     * @param unknown_type $path
      */
     public function setPath($path)
     {
@@ -163,7 +163,7 @@ class Logo implements UploadCollectionFileInterface
 
     /**
      *
-     * @param unknown_type $position            
+     * @param unknown_type $position
      */
     public function setPosition($position)
     {

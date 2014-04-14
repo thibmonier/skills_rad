@@ -39,11 +39,21 @@ class Country
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
     /**
@@ -55,18 +65,18 @@ class Country
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
-     * Get name
+     * Get shortname
      *
-     * @return string 
+     * @return string
      */
-    public function getName()
+    public function getShortname()
     {
-        return $this->name;
+        return $this->shortname;
     }
 
     /**
@@ -78,17 +88,7 @@ class Country
     public function setShortname($shortname)
     {
         $this->shortname = $shortname;
-    
-        return $this;
-    }
 
-    /**
-     * Get shortname
-     *
-     * @return string 
-     */
-    public function getShortname()
-    {
-        return $this->shortname;
+        return $this;
     }
 }

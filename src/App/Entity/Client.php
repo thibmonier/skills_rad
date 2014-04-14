@@ -16,41 +16,36 @@ class Client
 {
     /**
      *
-     * @var integer
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
-    /**
-     *
-     * @var string
-     * @ORM\Column(name="name", type="string", length=255)
-     */
-    private $name;
-
-    /**
-     *
-     * @var string
-     * @ORM\Column(name="description", type="text")
-     */
-    private $description;
-
-    /**
-     *
      * @var \Datetime
      * @ORM\Column(type="datetime", nullable=false)
      */
     protected $createdAt;
-
     /**
      *
      * @var \Datetime
      * @ORM\Column(type="datetime", nullable=false)
      */
     protected $updatedAt;
-
+    /**
+     *
+     * @var integer
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    /**
+     *
+     * @var string
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+    /**
+     *
+     * @var string
+     * @ORM\Column(name="description", type="text")
+     */
+    private $description;
 
     /**
      * Constructor.
@@ -74,6 +69,16 @@ class Client
     }
 
     /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
      * Set name
      *
      * @param string $name
@@ -87,13 +92,13 @@ class Client
     }
 
     /**
-     * Get name
+     * Get description
      *
      * @return string
      */
-    public function getName()
+    public function getDescription()
     {
-        return $this->name;
+        return $this->description;
     }
 
     /**
@@ -107,16 +112,6 @@ class Client
         $this->description = $description;
 
         return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
     }
 
     /**

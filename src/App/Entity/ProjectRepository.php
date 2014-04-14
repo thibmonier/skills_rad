@@ -12,6 +12,13 @@ use Doctrine\ORM\EntityRepository;
 class ProjectRepository extends EntityRepository
 {
 
+    /**
+     * Retourne la liste des derniers projets signés
+     *
+     * @param string $alias
+     * @param int $limit
+     * @return array
+     */
     public function getLastSignedProjects($alias = 'pj', $limit = 10)
     {
         return $this->createQueryBuilder($alias)
@@ -22,14 +29,20 @@ class ProjectRepository extends EntityRepository
             ->getResult();
     }
 
-    
-
-    public function getTopClient() {
+    /**
+     * Retourne la liste des plus gros clients
+     *
+     * @param string $alias
+     * @param int $limit
+     * @return array
+     */
+    public function getTopClient($alias = 'pj', $limit = 10)
+    {
         return $this->createQueryBuilder($alias)
-        ->where("$alias.active = TRUE")
-        ->orderBy($alias . '.beginAt', 'DESC')
-        ->setMaxResults($limit)
-        ->getQuery()
-        ->getResult();
+            ->where($alias.'.active = TRUE')
+            ->orderBy($alias . '.beginAt', 'DESC')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult();
     }
 }
