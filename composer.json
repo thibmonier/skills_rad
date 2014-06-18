@@ -19,7 +19,7 @@
         "doctrine/orm": "~2.4",
         "doctrine/doctrine-bundle": "~1.2",
         "sensio/distribution-bundle": "2.3.*",
-        "knplabs/rad-bundle": "2.3.1",
+        "knplabs/rad-bundle": "dev-develop",
         "twig/extensions": "~1.0",
         "symfony/assetic-bundle": "~2.3",
         "doctrine/doctrine-fixtures-bundle": "~2.1@dev",
@@ -29,7 +29,7 @@
         "vich/uploader-bundle": "dev-master",
         "knplabs/knp-gaufrette-bundle": "0.2.*@dev",
         "avocode/form-extensions-bundle" : "dev-master",
-        "cedriclombardot/admingenerator-generator-bundle" : "dev-master",
+        "cedriclombardot/admingenerator-generator-bundle": "~1.1.0",
         "gedmo/doctrine-extensions": "2.3.x-dev",
         "ob/highcharts-bundle": "dev-master",
         "jms/debugging-bundle": "dev-master"

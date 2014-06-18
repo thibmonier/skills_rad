@@ -2,9 +2,10 @@
 
 {% block content %}
     <div class="content" style="margin-top: 10px">
-    <table class="table table-striped table-bordered" id="example">
-{{ bootstrap_datatable( persons ) }}
-    </table>
+        <table class="table table-striped table-bordered" id="example">
+            {{ bootstrap_datatable( persons ) }}
+        </table>
+        <a href="{{ path('app_persons_new') }}" class="btn btn-success">Nouveau</a>
 
         <script>
 

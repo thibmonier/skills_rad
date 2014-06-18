@@ -3,10 +3,13 @@
 
 {% block content %}
     <div class="content" style="margin-top: 10px">
-        <table class="table table-striped table-bordered" id="example">
-            {{ bootstrap_datatable( agencies ) }}
+        <table class="table table-hover table-bordered table-condensed" id="example">
+            {{ bootstrap_datatable( agencies , {theme: 'Twitter_Bootstrap', links: {
+            show:   { url: path('app_agencies_show', { id: agencies.id }) },
+            delete: { url: path('app_agencies_delete', { id: agencies.id }) } }}) }}
         </table>
     </div>
+    <a href="{{ path('app_agencies_new') }}" class="btn btn-success">Nouveau</a>
     <script>
 
 

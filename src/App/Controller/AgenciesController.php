@@ -9,7 +9,6 @@
 namespace App\Controller;
 
 use App\Entity\Agency;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * Class AgenciesController
@@ -18,6 +17,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 class AgenciesController extends Controller
 {
     /**
+     * @param array $agencies
      * @return array
      */
     public function indexAction(array $agencies)
@@ -32,6 +32,7 @@ class AgenciesController extends Controller
 
     /**
      * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     *
      */
     public function newAction()
     {

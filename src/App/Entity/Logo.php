@@ -60,7 +60,7 @@ class Logo implements UploadCollectionFileInterface
     /**
      * Set file
      *
-     * @param Symfony\Component\HttpFoundation\File\File $file
+     * @param \Symfony\Component\HttpFoundation\File\File $file
      * @return AlbumImage
      */
     public function setFile(\Symfony\Component\HttpFoundation\File\File $file)
