@@ -9,7 +9,6 @@
 namespace App\Controller;
 
 use App\Entity\Person;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * Class PersonsController
@@ -18,6 +17,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 class PersonsController extends Controller
 {
     /**
+     * @param  array $persons
      * @return array
      */
     public function indexAction(array $persons)
@@ -25,6 +25,10 @@ class PersonsController extends Controller
         return ['persons' => $persons];
     }
 
+    /**
+     * @param Person $person
+     * @return array
+     */
     public function showAction(Person $person)
     {
         return ['person' => $person];

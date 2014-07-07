@@ -11,9 +11,23 @@ namespace App\Controller;
 
 use Ob\HighchartsBundle\Highcharts\Highchart;
 
+/**
+ * Class HomepageController
+ * @package App\Controller
+ */
 class HomepageController extends Controller
 {
-    public function indexAction(array $lastProjects, array $technos, array $mostSigned) {
+    /**
+     * @param array $lastProjects
+     * @param array $technos
+     * @param array $mostSigned
+     * @return array
+     */
+    public function indexAction
+    (array $lastProjects,
+     array $technos,
+     array $mostSigned)
+    {
 
         $ob = new Highchart();
         $ob->chart->renderTo('linechart');
@@ -27,13 +41,15 @@ class HomepageController extends Controller
             'showInLegend' => false
         ));
 
-        $sum=0;
+        $sum = 0;
         $data = array();
+
         foreach ($technos as $value) {
             $sum += $value['1'];
         }
+
         foreach ($technos as $value) {
-            $data[] = array($value['name'], round($value['1']*100/$sum, 2));
+            $data[] = array($value['name'], round($value['1'] * 100 / $sum, 2));
         }
 
         $ob->series(array(
@@ -43,15 +59,9 @@ class HomepageController extends Controller
                 'data' => $data
             )
         ));
+
         return ['chart' => $ob,
             'lastProjects' => $lastProjects,
             'mostSigned' => $mostSigned];
-
-
-//        return new Response($this->container->get('templating')->render('SmileBackendBundle:Dashboard:dashboard.html.twig', array(
-//            'chart' => $ob,
-//            'lastProjects' => $lastProjects,
-//            'mostSigned' => $mostSigned
-//        )));
     }
 } 

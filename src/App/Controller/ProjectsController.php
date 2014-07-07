@@ -9,7 +9,6 @@
 namespace App\Controller;
 
 use App\Entity\Project;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * Class ProjectsController
@@ -18,6 +17,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 class ProjectsController extends Controller
 {
     /**
+     * @param  array $projects
      * @return array
      */
     public function indexAction(array $projects)
@@ -25,6 +25,10 @@ class ProjectsController extends Controller
         return ['projects' => $projects];
     }
 
+    /**
+     * @param Project $project
+     * @return array
+     */
     public function showAction(Project $project)
     {
         return ['project' => new Project];
@@ -49,6 +53,7 @@ class ProjectsController extends Controller
     }
 
     /**
+     * @param Project $project
      * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function editAction(Project $project)

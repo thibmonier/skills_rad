@@ -26,11 +26,6 @@ class TagsController extends Controller
         return ['tags' => $tags];
     }
 
-//    public function showAction(Tag $tag)
-//    {
-//        return ['tag' => $tag];
-//    }
-
     /**
      * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
