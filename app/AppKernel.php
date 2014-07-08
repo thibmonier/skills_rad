@@ -20,6 +20,10 @@ class AppKernel extends Kernel
             new Knp\RadBundle\KnpRadBundle(),
             new Ob\HighchartsBundle\ObHighchartsBundle(),
             new App\App(),
+
+            new Admingenerator\GeneratorBundle\AdmingeneratorGeneratorBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
