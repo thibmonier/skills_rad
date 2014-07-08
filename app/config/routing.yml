@@ -1,3 +1,8 @@
+App_admin__project:
+    resource: "@App/Controller/Project/"
+    type:     admingenerator
+    prefix:   /admin/app_bundle/project
+
 app:
     resource: "@App/Resources/config/routing.yml"
     type:     "rad_convention"

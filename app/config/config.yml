@@ -26,7 +26,7 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ MopaBootstrapBundle ]
+    bundles:        [ MopaBootstrapBundle, AdmingeneratorGeneratorBundle ]
     #java: /usr/bin/java
     filters:
         #closure:
@@ -39,9 +39,9 @@ assetic:
             node_paths: [/usr/local/lib/node_modules]
             apply_to: "\.less$"
         cssrewrite: ~
-        cssembed:
-            jar: %kernel.root_dir%/Resources/java/cssembed-0.4.5.jar
-            apply_to: "\.css$|\.less$"
+#        cssembed:
+#            jar: %kernel.root_dir%/Resources/java/cssembed-0.4.5.jar
+#            apply_to: "\.css$|\.less$"
         yui_css:
             jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.8.jar
             apply_to: "\.css$"
@@ -99,3 +99,26 @@ mopa_bootstrap:
             wt: 'xxx'
             analytics: 'UA-xxxxxxx-xx'
         diagnostic_mode: true
+
+admingenerator_generator:
+# choose  and enable at least one
+    use_propel:           true
+    use_doctrine_orm:     true
+    use_doctrine_odm:     false
+
+    base_admin_template: AdmingeneratorGeneratorBundle::base_admin.html.twig
+    templates_dirs: []
+    stylesheets: [] # array of {path: path_to_stylesheet, media: all}
+    javascripts: [] # array of {path: path_to_javascript, route: route_name, routeparams: [value1, value2]}
+
+    twig:
+        use_form_resources: true
+        use_localized_date: false
+        date_format: Y-m-d
+        datetime_format: Y-m-d H:i:s
+        localized_date_format: medium
+        localized_datetime_format: medium
+        number_format:
+            decimal: 0
+            decimal_point: .
+            thousand_separator: ,
