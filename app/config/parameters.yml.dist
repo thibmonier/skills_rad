@@ -12,4 +12,4 @@ parameters:
     mailer_password:   ~
 
     locale:            en
-    secret:            ThisTokenIsNotSoSecretChangeIt
+    secret:            Rx45aJEHYOSNb6Ha5rY8i9gLwOO767CKOHwR2kAZBk77xRmCwN8UVi9sEdsWmTV
