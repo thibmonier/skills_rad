@@ -1,0 +1,56 @@
+generator: admingenerator.generator.doctrine
+params:
+    model: App\Entity\Project
+    namespace_prefix: ~
+    concurrency_lock: ~
+    bundle_name: App
+    pk_requirement: ~
+    fields: ~
+    object_actions:
+        delete: ~
+    batch_actions:
+        delete: ~
+builders:
+    list:
+        params:
+            title: Liste de projets
+            display: [id, name]
+            actions:
+                new: ~
+            object_actions:
+                edit: ~
+                delete: ~
+    excel:
+        params: ~
+        filename: ~
+        filetype: ~
+    filters:
+        params:
+            display: [name]
+    new:
+        params:
+            title: New object for appBundle
+            display: [name]
+            actions:
+                save: ~
+                list: ~
+    edit:
+        params:
+            title: "You're editing the object \"%object%\"|{ %object%: Project.name }|"
+            display: [name]
+            actions:
+                save: ~
+                list: ~
+    show:
+        params:
+            title: "You're viewing the object \"%object%\"|{ %object%: Project.title }|"
+            display: [name]
+            actions:
+                list: ~
+                new: ~
+    actions:
+        params:
+            object_actions:
+                delete: ~
+            batch_actions:
+                delete: ~
