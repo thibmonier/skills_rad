@@ -55,7 +55,7 @@ class Period
     public function __construct()
     {
         $this->projects = new ArrayCollection();
-        $date = new \DateTime();
+
         $this->month = date("m");
         $this->year = date("Y");
 

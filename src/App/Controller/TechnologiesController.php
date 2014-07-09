@@ -9,7 +9,6 @@
 namespace App\Controller;
 
 use App\Entity\Technology;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * Class ProjectsController
